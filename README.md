@@ -68,6 +68,8 @@ In VS Code, the dropdown next to the `+` in the terminal panel shows which shell
 
 When the virtual environment is active, `(venv)` appears at the start of your prompt. After `python app.py` (or `python3 app.py`), open <http://127.0.0.1:5000> in your browser.
 
+VS Code may show a message saying that an environment file is configured but terminal environment injection is disabled (`python.terminal.useEnvFile`). That is fine: the app loads `.env` by itself, so you can ignore the message and leave the setting off.
+
 ## Deploying on Render
 
 - **Build command:** `pip install flask openai python-dotenv gunicorn`
