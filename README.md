@@ -77,3 +77,9 @@ VS Code may show a message saying that an environment file is configured but ter
 - **Environment variable:** `OPENAI_API_KEY` = your key. Never commit your key to GitHub.
 
 If the deploy fails with `gunicorn: command not found` (status 127), `gunicorn` is missing from the build command. If it fails with `No module named 'openai'`, `openai` is missing.
+
+### If Render times out
+
+If requests time out (the logs may show `WORKER TIMEOUT`), for example when the OpenAI call is slow, add the `--timeout` parameter to the `gunicorn` line in the Render configuration. gunicorn stops a request after 30 seconds by default, and this raises the limit to 240 seconds:
+
+- **Start command:** `gunicorn app:app --timeout 240`
